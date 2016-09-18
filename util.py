@@ -1,10 +1,11 @@
-import functools, inspect
+import functools, inspect, sys
 
 def constructor(__init__):
     @functools.wraps(__init__)
     def new_init(self, *args, **kwds):
         bound_args = inspect.signature(__init__).bind(*args, **kwds)
-        bound_args.apply_defaults()
+        if sys.version_info >= (3,5):
+            bound_args.apply_defaults()
         for k, v in bound_args.arguments.items():
             setattr(self, k, v)
     return new_init
