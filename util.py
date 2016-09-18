@@ -10,7 +10,7 @@ def constructor(__init__):
             setattr(self, k, v)
         __init__(self, *args, **kwds)
     return new_init
-    
+
 def accumulate(accum_type):
     def outer_wrapper(f):
         @functools.wraps(f)
@@ -21,7 +21,7 @@ def accumulate(accum_type):
 
 def accumulate_star(accum_type):
     return accumulate(lambda x: accum_type(*x))
-    
+
 def trace(show_counter=False, show_types=False):
     def outer_wrapper(f):
         counter = 0
