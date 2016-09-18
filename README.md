@@ -51,7 +51,7 @@ Easy.
 
 ## pytrace
 
-A **simple** tracing decorator for Python. So simple that it couldn't be anything but **CC0 licensed**.
+A **simple** tracing decorator for Python.
 
 ```python
 @trace()
@@ -85,14 +85,14 @@ foo(1: int, 'a': str, True: bool) -> "hello, world!"
 @trace(show_counter=True)
 def test_counter(n):
     return n
-fac(1)
-fac(10)
-fac(20)
+test_counter(1)
+test_counter(10)
+test_counter(20)
 ```
 
 ```
 $ python3 pytrace.py
-1 fac(1) -> 1
-2 fac(10) -> 10
-3 fac(20) -> 20
+1 test_counter(1) -> 1
+2 test_counter(10) -> 10
+3 test_counter(20) -> 20
 ```
